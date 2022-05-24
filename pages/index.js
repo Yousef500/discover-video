@@ -3,6 +3,7 @@ import Banner from "../components/banner/banner";
 import NavBar from "../components/nav/navbar";
 import styles from "../styles/Home.module.css";
 import Card from "../components/card/card";
+import SectionCards from '../components/card/section-cards'
 
 export default function Home() {
   return (
@@ -20,9 +21,12 @@ export default function Home() {
         subtitle={"a very cute dog"}
         imgUrl={"/static/clifford.webp"}
       />
+      <SectionCards title={"Disney"} />
       <Card imgUrl={'/static/clifford.webp'} size="large" />
       <Card imgUrl={'/static/clifford.webp'} size="medium" />
       <Card imgUrl={'/static/clifford.webp'} size="small" />
+
+
     </div>
   );
 }
