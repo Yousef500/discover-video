@@ -52,46 +52,72 @@
 }
 
 .col1 {
-    max-height: 50vh /* 208px */;
+    max-height: 50vh
+        /* 208px */
+    ;
     overflow-y: hidden;
     overflow-y: scroll;
 }
 
 .publishTime {
-    font-size: 1.125rem /* 18px */;
-    line-height: 1.75rem /* 28px */;
-    margin-top: 1.5rem /* 24px */;
-    margin-bottom: 0.5rem /* 8px */;
+    font-size: 1.125rem
+        /* 18px */
+    ;
+    line-height: 1.75rem
+        /* 28px */
+    ;
+    margin-top: 1.5rem
+        /* 24px */
+    ;
+    margin-bottom: 0.5rem
+        /* 8px */
+    ;
     color: var(--green10);
 }
 
 .text {
-    font-size: 1.125rem /* 18px */;
-    line-height: 1.75rem /* 28px */;
+    font-size: 1.125rem
+        /* 18px */
+    ;
+    line-height: 1.75rem
+        /* 28px */
+    ;
     color: var(--white10);
 }
 
 .description {
-    margin-bottom: 0.5rem /* 8px */;
-    margin-top: 0.75rem /* 12px */;
+    margin-bottom: 0.5rem
+        /* 8px */
+    ;
+    margin-top: 0.75rem
+        /* 12px */
+    ;
 }
 
 .col2 {
     color: var(--white10);
-    line-height: 1.75rem /* 28px */;
+    line-height: 1.75rem
+        /* 28px */
+    ;
     display: flex;
     flex-direction: column;
 }
 
 .subText {
-    font-size: 0.875rem /* 14px */;
-    line-height: 1.25rem /* 20px */;
+    font-size: 0.875rem
+        /* 14px */
+    ;
+    line-height: 1.25rem
+        /* 20px */
+    ;
     margin-left: 0px;
     overflow-wrap: break-word;
 }
 
 .subTextWrapper {
-    margin-top: 1.5rem /* 24px */;
+    margin-top: 1.5rem
+        /* 24px */
+    ;
 }
 
 .textColor {
@@ -115,10 +141,14 @@
 
 .likeDislikeBtnWrapper {
     display: flex;
-    margin-bottom: 0.75rem /* 12px */;
+    margin-bottom: 0.75rem
+        /* 12px */
+    ;
     position: absolute;
     top: 35%;
-    padding-left: 1rem /* 48px */;
+    padding-left: 1rem
+        /* 48px */
+    ;
 }
 
 .btnWrapper {
@@ -127,11 +157,15 @@
     border-width: 2px;
     background-color: var(--gray40);
     border-radius: 9999px;
-    padding: 0.5rem /* 8px */;
+    padding: 0.5rem
+        /* 8px */
+    ;
     display: flex;
     justify-content: center;
 }
 
 .likeBtnWrapper {
-    margin-right: 0.5rem /* 8px */;
+    margin-right: 0.5rem
+        /* 8px */
+    ;
 }

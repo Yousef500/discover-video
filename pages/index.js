@@ -37,6 +37,7 @@ export default function Home({disneyVideos, travelVideos, productivityVideos, po
                     title={"Clifford the red dog"}
                     subtitle={"a very cute dog"}
                     imgUrl={"/static/clifford.webp"}
+                    videoId=""
                 />
 
                 <div className={styles.sectionWrapper}>
