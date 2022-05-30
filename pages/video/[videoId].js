@@ -1,29 +1,59 @@
+import cls from "classnames";
 import { useRouter } from "next/router";
 import Modal from "react-modal";
+import NavBar from "../../components/nav/navbar";
+import { getYoutubeVideoById } from "../../lib/videos";
 import styles from "/styles/Video.module.css";
-import cls from 'classnames'
 
 Modal.setAppElement("#__next");
 
-const Video = () => {
-  const router = useRouter();
-  const video = {
-    title: "Hi cute dog",
-    publishTime: "1990-01-01",
-    description: "A big red dog... can he get any bigger?",
-    channelTitle: "Paramount Pictures",
-    viewCount: 10000,
+export async function getStaticProps(ctx) {
+  // const video = {
+  //   title: "Hi cute dog",
+  //   publishTime: "1990-01-01",
+  //   description: "A big red dog... can he get any bigger?",
+  //   channelTitle: "Paramount Pictures",
+  //   viewCount: 10000,
+  // };
+
+  const data = await getYoutubeVideoById(ctx.params.videoId);
+
+  return {
+    props: {
+      video: data.length > 0 ? data[0] : {},
+    },
+    revalidate: 10, // In seconds
   };
+}
+
+// This function gets called at build time on server-side.
+// It may be called again, on a serverless function, if
+// the path has not been generated.
+export async function getStaticPaths() {
+  const listOfVideos = ["zqrF1L8Jiwo", "XEZ1awvi-FA", "rU-EgcWaUPk"];
+
+  const paths = listOfVideos.map((videoId) => ({ params: { videoId } }));
+  return { paths, fallback: "blocking" };
+}
+
+const Video = ({ video }) => {
+  const router = useRouter();
 
   const { title, publishTime, description, channelTitle, viewCount } = video;
   const { videoId } = router.query;
+
+  const handleClose = () => {
+    router.back();
+  };
+
   return (
     <div className={styles.container}>
+      <NavBar />
       <Modal
         className={styles.modal}
         isOpen={true}
         contentLabel="watch the video"
-        onRequestClose={() => router.back()}
+        onRequestClose={handleClose}
         shouldCloseOnEsc={true}
         overlayClassName={styles.overlay}
       >
