@@ -5,7 +5,6 @@ import {useRouter} from 'next/router'
 const Banner = ({title, subtitle, imgUrl, videoId}) => {
     const router = useRouter();
     const handleOnPlay = () => {
-        console.log("handle on play")
         router.push(`/video/${videoId}`)
     }
     return (

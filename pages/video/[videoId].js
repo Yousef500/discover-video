@@ -16,7 +16,27 @@ export async function getStaticProps(ctx) {
   //   viewCount: 10000,
   // };
 
-  const data = await getYoutubeVideoById(ctx.params.videoId);
+  const data =
+    process.env.DEVELOPMENT === "true"
+      ? [
+          {
+            videoId: "Q_vjDDWczG8",
+            title: "Gintama's love confession | Gintoki X Tsukuyo | Gintama",
+            imgUrl:
+              "https://www.google.com.sa/url?sa=i&url=https%3A%2F%2Fwww.deviantart.com%2Fblackotakuz%2Fjournal%2FWhy-do-I-think-that-Gintoki-has-some-feelings-for-553336121&psig=AOvVaw0QLmdprjxJg6jd2i-5qSRa&ust=1654080805333000&source=images&cd=vfe&ved=2ahUKEwiSkPanyYn4AhVSM8AKHW6EBH4QjRx6BAgAEAs",
+            description: `Anime : "Gintama". 
+
+
+  DISCLAIMER: Be aware this channel is for promotion and entertainment purposes only.
+  All belongs to the original creators and to the respective owners.
+  
+  Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favor of fair use.`,
+            publishTime: "Feb 6, 2022",
+            channelTitle: "Anime Crash Point",
+            viewCount: "9,564",
+          },
+        ]
+      : await getYoutubeVideoById(ctx.params.videoId);
 
   return {
     props: {
@@ -40,7 +60,10 @@ const Video = ({ video }) => {
   const router = useRouter();
 
   const { title, publishTime, description, channelTitle, viewCount } = video;
-  const { videoId } = router.query;
+  const videoId =
+    process.env.NEXT_PUBLIC_DEVELOPMENT === "true"
+      ? "Q_vjDDWczG8"
+      : router.query.videoId;
 
   const handleClose = () => {
     router.back();
